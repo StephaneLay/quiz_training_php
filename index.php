@@ -1,19 +1,24 @@
 <?php
 
     require 'contents/header.php';
-
-    $questions = ["question"=>"Qui est le guitariste des Guns'N'Roses?","answers"=>
-    [["content"=>"Slash","value"=>"R"],["content"=>"Angus Young","value"=>"W"],
-    ["content"=>"Angus Young","value"=>"W"],["content"=>"Angus Young","value"=>"W"]]];
+    require 'contents/questions.php';
 
 
-    $tracker = 0;
-    $points = 0;
+    $name = "answer";
 
-    while ($tracker<=9) {
+    session_start();
 
-        DisplayQuestion($tracker);
+    if(!isset($_SESSION['tracker'])) {
+    $_SESSION['tracker'] = 0;
     }
+
+  if(!isset($_SESSION['points'])) {
+    $_SESSION['points'] = 0;
+    }
+
+    Displayquestion($_SESSION['tracker']);
+   
+    
     echo "<form method='post'>
             <fieldset>
             <legend>Qui est le guitariste des Guns'N'Roses? </legend>
@@ -35,15 +40,20 @@
         </fieldset>";
         require "contents/footer.php";
 
-        if (isset($_POST['singer'])) {
-        var_dump($_POST['singer']);
+        if (isset($_POST[$name])) {
         echo '<h2>'. $_POST['singer'] .'</h2>';
+        }
 
 
-        DisplayQuestion($number){
+        function Displayquestion($number){
+            echo "<form method='post'>
+            <fieldset>
+            <legend>";
 
         }
-    }
+
+         
+    
 
 
 
