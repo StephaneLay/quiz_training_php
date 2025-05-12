@@ -16,7 +16,7 @@
     $_SESSION['points'] = 0;
     }
 
-    Displayquestion($_SESSION['tracker']);
+    Display_question($_SESSION['tracker'],$questions);
    
     
     echo "<form method='post'>
@@ -45,15 +45,16 @@
         }
 
 
-        function Displayquestion($number){
-            echo "<form method='post'>
-            <fieldset>
-            <legend>";
+        function Display_question($number,$_questions){
+            echo "<form method='post'><fieldset>";
+            echo "<legend>".$_questions[$number]["question"]."</legend>";
+
+            //ICI CODER LE FOREACH POUR CHAQUE INPUT/LABELS ETC...
 
         }
 
          
-    
+?>    
 
 
 
