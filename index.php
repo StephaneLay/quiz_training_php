@@ -15,10 +15,12 @@
   if(!isset($_SESSION['points'])) {
     $_SESSION['points'] = 0;
     }
-
-    Display_question($_SESSION['tracker'],$questions,$name);
+    // var_dump($questionnaires);
+    //Display_question($_SESSION['tracker'],$questions,$name);
    
     
+
+
     
         require "contents/footer.php";
 
