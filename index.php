@@ -19,7 +19,7 @@
     //Display_question($_SESSION['tracker'],$questions,$name);
    
     
-
+    Init_page();
 
     
         require "contents/footer.php";
@@ -29,6 +29,14 @@
         var_dump($_POST[$name]);
         }
 
+        function  Init_page(){
+            echo "<a href='/quizzpage.php?category=CS'>Quizz Ciné & Séries</a>
+<a href='/quizzpage.php?category=HG'>Quizz Histoire & Géo</a>
+<a href='/quizzpage.php?category=JV'>Quizz Jeux vidéos</a>
+<a href='/quizzpage.php?category=MU'>Quizz Musique</a>
+<a href='/quizzpage.php?category=NS'>Quizz Nature & Sciences</a>
+<a href='/quizzpage.php?category=SL'>Quizz Sports & Loisirs</a>";
+        }
 
         function Display_question($number,$_questions,$_name){
             echo "<form method='post'><fieldset>";
@@ -52,3 +60,4 @@
 
     
 
+<a href="/fichier.php?category=jeu"></a>
