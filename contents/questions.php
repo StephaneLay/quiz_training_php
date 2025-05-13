@@ -13,14 +13,7 @@ $questionnaires = ["CS" => [],
     "NS" => [],
     "SL" => []];
 
-$questionnaires_source = [
-    ["category" => "CS", "questionnaire" => []],
-    ["category" => "HG", "questionnaire" => []],
-    ["category" => "JV", "questionnaire" => []],
-    ["category" => "MU", "questionnaire" => []],
-    ["category" => "NS", "questionnaire" => []],
-    ["category" => "SL", "questionnaire" => []]
-];
+
 
 $question_template = [
     "question" => "",
@@ -36,7 +29,7 @@ foreach ($donnees as $value) {
     for ($i=3; $i < 7; $i++) { 
         $question_template["answers"][$i-3]["content"] = $value[$i];
     }
-    $questionnaires[$value[1]][] = $question_template;
+    $questionnaires[trim($value[1])][] = $question_template;
 }
 
 var_dump($questionnaires);
