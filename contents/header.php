@@ -11,4 +11,4 @@
         <h1>Quizz de rock</h1>
         <p>Exam Stephane Lay</p>
     </hgroup>
-    <main></main>
+    <main>
