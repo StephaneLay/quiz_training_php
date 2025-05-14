@@ -1,6 +1,6 @@
 <?php
 require "contents/questions.php";
-require "contents/header.php";
+require "contents/header_quiz.php";
 
 $name = "answer";
 session_start();
@@ -9,13 +9,8 @@ session_start();
 if (!isset($_SESSION['tracker'])) {
     initSession($questionnaires);
     $question_amount = count($_SESSION['questions']);
-    // displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name, $question_amount);
 }
 $question_amount = count($_SESSION['questions']);
-
-
-//QUAND ON REPONDS ON LIT CE QUI A CI DESSOUS(issetetc) : DONC CE TRUC DE REPONSE + LE DISPLAY QUESTION POUR LE MOMENT
-
 
 if (isset($_POST[$name])) {
     $_SESSION['tracker']++;
@@ -24,20 +19,15 @@ if (isset($_POST[$name])) {
     }
 }
 if ($_SESSION['tracker'] == $question_amount) {
-        echo '<h1>' . $_SESSION['points'] . '</h1>';
-        echo '<a href="/">Retourner au menu principal</a>';
+    echo '<h2>' . displayEndQuizz($_SESSION['points'], $question_amount) . '</h2>';
+    echo '<a class="navbutton" href="/">Retourner au menu principal</a>';
 
-
-}else{
-        displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name, $question_amount);
+} else {
+    displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name, $question_amount);
 }
 
 
 
-
-//UNE FOIS TOUTES LES QUESTIONS REPONDUES , ON VA DEVOIR AFFICHER UN ECRAN DE RESULTAT , AVEC UN NOUVEAU BUTTON;
-//UNE FOIS CE BOUTON CLIQUe, ON REVIENT SUR INDEX ET ON RESET TOUTES LES VAR SESSION
-//OPTI : RANGER ET DOCUMENTER LE CODE
 
 
 
@@ -58,6 +48,8 @@ function displayQuestion($number, $_questions, $_name, $_questionAmount)
         </fieldset>";
 }
 
+
+
 function initSession($_questionnaireGlobal)
 {
     $_SESSION['tracker'] = 0;
@@ -74,6 +66,25 @@ function initSession($_questionnaireGlobal)
             }
         }
     }
+}
+
+function displayEndQuizz($points, $_question_amount)
+{
+    echo '<h1>' . $points . '</h1>';
+    $rapport = $points / $_question_amount;
+
+    if ($rapport <= 0.33) {
+        return "Mouais bin c'est pas foufou comme résultat y a pas de quoi flamber";
+    }
+    if ($rapport <= 0.66) {
+        return "Franchement pas mal du tout j'ai envie de dire pas mal du tout";
+    }
+    if ($rapport <= 1) {
+        return "Bah bravo t'es juste un.e monstre, ca m'épate ce talent, j'ai meme envie de dire ca m'emeut";
+    }
+    
+    return "Arrete de tricher personne n'aime les tricheurs surtout pas moi";
+
 }
 
 

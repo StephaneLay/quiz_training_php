@@ -1,58 +1,86 @@
-:root{
-    font-size: 16px;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+/* RESET DE BASE */
+* {
     margin: 0;
     padding: 0;
-    color: #333;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-hgroup {
-    text-align: center;
-    padding: 2rem;
-    background-color: #102a43;
+/* BODY GÉNÉRAL */
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    padding: 2rem;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 1rem;
-    flex-direction: column;
-
+/* PAGE D'ACCUEIL */
+.quizzcards {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem auto;
+    text-align: center;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-form {
-    background-color: #fff;
-    padding: 2rem 2.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.quizzcards:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.quizzcards img {
     width: 100%;
-    max-width: 600px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    height: auto;
+    object-fit: cover;
 }
 
-fieldset {
-    border: none;
-    padding: 0;
+.navbutton {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    margin-top: 0.5rem;
+    background-color: #ffcc00;
+    color: #1e3c72;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.navbutton:hover {
+    background-color: #ffd633;
+}
+
+/* PAGE DE QUIZZ */
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 legend {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-    color: #102a43;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .answers {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin: 1rem 0;
 }
 
 .answers input[type="radio"] {
@@ -60,35 +88,47 @@ legend {
 }
 
 .answers label {
-    background-color: #d9e2ec;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
+    background: #fff;
+    color: #1e3c72;
+    padding: 1rem;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: background 0.3s ease, transform 0.2s ease;
     border: 2px solid transparent;
 }
 
 .answers input[type="radio"]:checked + label {
-    background-color: #486581;
-    color: white;
-    border-color: #243b53;
+    background-color: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    border-color: #fff;
 }
 
 .answers label:hover {
-    background-color: #bcccdc;
+    transform: scale(1.02);
 }
 
 button {
-    background-color: #2f855a;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.7rem 2rem;
     font-size: 1rem;
+    background-color: #ffcc00;
+    border: none;
+    color: #1e3c72;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #276749;
+    background-color: #ffd633;
+}
+
+/* FIN DU QUIZZ */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
 }
