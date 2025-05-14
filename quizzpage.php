@@ -9,26 +9,29 @@ session_start();
 if (!isset($_SESSION['tracker'])) {
     initSession($questionnaires);
     $question_amount = count($_SESSION['questions']);
-    displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name,$question_amount);
+    // displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name, $question_amount);
 }
 $question_amount = count($_SESSION['questions']);
 
 
 //QUAND ON REPONDS ON LIT CE QUI A CI DESSOUS(issetetc) : DONC CE TRUC DE REPONSE + LE DISPLAY QUESTION POUR LE MOMENT
+
+
 if (isset($_POST[$name])) {
     $_SESSION['tracker']++;
-    
-    if ($_SESSION['tracker'] == $question_amount) {
-        echo '<h1>'.$_SESSION['points'].'</h1>';
-    } else {
-        if ($_POST[$name] == "R") {
-            $_SESSION['points']++;
-        }
-        displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name,$question_amount);
-
-
+    if ($_POST[$name] == "R") {
+        $_SESSION['points']++;
     }
 }
+if ($_SESSION['tracker'] == $question_amount) {
+        echo '<h1>' . $_SESSION['points'] . '</h1>';
+
+}else{
+        displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name, $question_amount);
+}
+
+
+
 
 //IL FAUT ETUDIER LE CAS OU AUCUNE REPONSE N'EST SELECTIONNEE
 //UNE FOIS TOUTES LES QUESTIONS REPONDUES , ON VA DEVOIR AFFICHER UN ECRAN DE RESULTAT , AVEC UN NOUVEAU BUTTON;
@@ -37,9 +40,9 @@ if (isset($_POST[$name])) {
 
 
 
-function displayQuestion($number, $_questions, $_name,$_questionAmount)
+function displayQuestion($number, $_questions, $_name, $_questionAmount)
 {
-    echo '<h2>' . $number+1 . '/' . $_questionAmount . '</h2>';
+    echo '<h2>' . $number + 1 . '/' . $_questionAmount . '</h2>';
     echo "<form method='post'><fieldset>";
     echo "<legend>" . $_questions[$number]["question"] . "</legend>";
     echo "<div class='answers'>";
