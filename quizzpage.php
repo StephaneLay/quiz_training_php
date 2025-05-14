@@ -25,6 +25,8 @@ if (isset($_POST[$name])) {
 }
 if ($_SESSION['tracker'] == $question_amount) {
         echo '<h1>' . $_SESSION['points'] . '</h1>';
+        echo '<a href="/">Retourner au menu principal</a>';
+
 
 }else{
         displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name, $question_amount);
@@ -33,7 +35,6 @@ if ($_SESSION['tracker'] == $question_amount) {
 
 
 
-//IL FAUT ETUDIER LE CAS OU AUCUNE REPONSE N'EST SELECTIONNEE
 //UNE FOIS TOUTES LES QUESTIONS REPONDUES , ON VA DEVOIR AFFICHER UN ECRAN DE RESULTAT , AVEC UN NOUVEAU BUTTON;
 //UNE FOIS CE BOUTON CLIQUe, ON REVIENT SUR INDEX ET ON RESET TOUTES LES VAR SESSION
 //OPTI : RANGER ET DOCUMENTER LE CODE
@@ -59,8 +60,6 @@ function displayQuestion($number, $_questions, $_name, $_questionAmount)
 
 function initSession($_questionnaireGlobal)
 {
-
-
     $_SESSION['tracker'] = 0;
 
     if (!isset($_SESSION['points'])) {
@@ -76,6 +75,7 @@ function initSession($_questionnaireGlobal)
         }
     }
 }
+
 
 
 

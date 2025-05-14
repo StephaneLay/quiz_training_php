@@ -5,6 +5,8 @@ require 'contents/questions.php';
 
 
 initButtons();
+session_start();
+session_destroy();
 
 require "contents/footer.php";
 
@@ -20,8 +22,7 @@ function initButtons()
 <a href='/quizzpage.php?category=SL'>Quizz Sports & Loisirs</a>";
 }
 
+// function  ResetSession($_questionnaireGlobal){
+//     sess
+// }
 ?>
-
-
-
-
