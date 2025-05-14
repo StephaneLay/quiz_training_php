@@ -23,6 +23,8 @@ main {
     justify-content: center;
     align-items: center;
     padding: 3rem 1rem;
+    flex-direction: column;
+
 }
 
 form {
