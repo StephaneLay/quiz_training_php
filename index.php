@@ -20,13 +20,8 @@ function initButtons()
 <a href='/quizzpage.php?category=SL'>Quizz Sports & Loisirs</a>";
 }
 
-
-
-
 ?>
 
 
 
 
-
-<a href="/fichier.php?category=jeu"></a>

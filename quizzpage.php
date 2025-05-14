@@ -4,26 +4,20 @@ require "contents/header.php";
 
 $name = "answer";
 
-initSession();
+//SET UP LE COMPTEUR DE QUESTIONS,De POINTS ET LE QUESITONNAIRE DE LA BONNE CATEGORIE + RETURN LE NB DE QUESTION DE LA CATEGORIE
+if (!isset($_SESSION['tracker'])) {
+    $question_amount = initSession($questionnaires);
+}
 
-//QUAND ON REPONDS ON LIT CE QUI A CI DESSOUS(issetetc) : MAIS ATTENTION , ON RELIT TOUT TOUT LE CODE EN DESSOUS APRES
+//QUAND ON REPONDS ON LIT CE QUI A CI DESSOUS(issetetc) : DONC CE TRUC DE REPONSE + LE DISPLAY QUESTION POUR LE MOMENT
 if (isset($_POST[$name])) {
     $_SESSION['tracker']++;
-
 }
 
-//CE BOUT DE CODE NE DOIT ETRE FAIT QU'UNE SEULE FOIS!!!!!(reponse au truc d'en haut)
-$questions = [];
-foreach ($questionnaires as $key => $categoryQuestions) {
-    if ($key == $_GET['category']) {
-        $questions = $categoryQuestions;
-        break;
-    }
-}
-$questionsAmount = count($questions);
+//UNE FOIS TOUTES LES QUESTIONS REPONDUES , ON VA DEVOIR AFFICHER UN ECRAN DE RESULTAT , AVEC UN NOUVEAU BUTTON;
+//UNE FOIS CE BOUTON CLIQUe, ON REVIENT SUR INDEX ET ON RESET TOUTES LES VAR SESSION
 
-displayQuestion($_SESSION['tracker'], $questions, $name);
-var_dump($_SESSION['tracker']);
+displayQuestion($_SESSION['tracker'], $_SESSION['questions'], $name);
 
 function displayQuestion($number, $_questions, $_name)
 {
@@ -41,18 +35,25 @@ function displayQuestion($number, $_questions, $_name)
         </fieldset>";
 }
 
-function initSession(){
+function initSession($_questionnaireGlobal)
+{
     session_start();
 
-if (!isset($_SESSION['tracker'])) {
     $_SESSION['tracker'] = 0;
-}
 
-if (!isset($_SESSION['points'])) {
-    $_SESSION['points'] = 0;
+    if (!isset($_SESSION['points'])) {
+        $_SESSION['points'] = 0;
+    }
+    if (!isset($_SESSION['questions'])) {
+        $_SESSION['questions'] = [];
+        foreach ($_questionnaireGlobal as $key => $categoryQuestions) {
+            if ($key == $_GET['category']) {
+                $_SESSION['questions'] = $categoryQuestions;
+                return count($_SESSION['questions']);
+            }
+        }
+    }
 }
-}
-
 
 // IL FAUT :
 // CREER LE DISPLAY DE QUESTIONS , LE COMPTEUR DE POINTS , LE QUESITON TRACKER ETC DANS CE FICHIER !
@@ -60,5 +61,3 @@ if (!isset($_SESSION['points'])) {
 //NE PAS OUBLIER DE RANDOMISER L'ORDRE DES QUESTIONS !!!!!!!!!!!!!!!!!!!
 
 //OPTI : RANGER ET DOCUMENTER LE CODE
-// LE $name pourrait clairement etre interne à la fonction et tout le code pas rangé pourrait lui aussi etre opti.
-//oN S'occupera du style apres

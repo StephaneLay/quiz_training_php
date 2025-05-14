@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>ExamSLAY-QUIZ ROCK</title>
+    <title>EvalSLAY-QUIZ</title>
 </head>
 <body>
     <hgroup>
-        <h1>Quizz de rock</h1>
-        <p>Exam Stephane Lay</p>
+        <h1>Quizz Culture Générale</h1>
+        <p>Eval Stephane Lay</p>
     </hgroup>
     <main>
