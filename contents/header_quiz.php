@@ -12,7 +12,6 @@ echo
 <body>
     <hgroup>
         <h1>Quizz ' . $category . '</h1>
-        <p>Eval Stephane Lay</p>
     </hgroup>
     <main>';
 

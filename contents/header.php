@@ -9,6 +9,5 @@
 <body>
     <hgroup>
         <h1>Quizz Culture Générale</h1>
-        <p>Eval Stephane Lay</p>
     </hgroup>
     <main>

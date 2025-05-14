@@ -1,5 +1,4 @@
 <?php
-
 require 'contents/header.php';
 require 'contents/questions.php';
 
@@ -52,4 +51,3 @@ function initButtons()
 
 
 ?>
-

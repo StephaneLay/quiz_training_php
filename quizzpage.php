@@ -86,7 +86,3 @@ function displayEndQuizz($points, $_question_amount)
     return "Arrete de tricher personne n'aime les tricheurs surtout pas moi";
 
 }
-
-
-
-
