@@ -10,7 +10,6 @@
 body {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #fff;
-    min-height: 100vh;
     padding: 2rem;
 }
 
@@ -38,7 +37,7 @@ main {
     width: 40%;
     height: 15rem;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgb(18 14 14 / 51%);
     border-radius: 15px;
     padding: 1rem;
     margin: 1rem auto;
@@ -64,6 +63,7 @@ main {
     display: inline-block;
     padding: 0.7rem 1.5rem;
     margin-top: 0.5rem;
+    width: 100%;
     background-color: #ffcc00;
     color: #1e3c72;
     border-radius: 8px;
@@ -78,12 +78,18 @@ main {
 
 /* PAGE DE QUIZZ */
 form {
-    max-width: 600px;
-    margin: 2rem auto;
+    /* max-width: 600px; */
+    width: 50%;
+    margin: .5rem auto; 
     background: rgba(0, 0, 0, 0.2);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+fieldset{
+    padding: 1rem;
+    min-width: 100%;
 }
 
 h2 {
@@ -93,7 +99,6 @@ h2 {
 
 legend {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
     text-align: center;
 }
 

@@ -3,9 +3,11 @@ require 'contents/header.php';
 require 'contents/questions.php';
 
 
-//JOLI INDEX AVEC IMAGES
+
 //OPTI : RANGER ET DOCUMENTER LE CODE
-//FULL GENERATION DE STYLE POUR RENDRE LE QUIZ BEAU
+//FINIR LE STYLE
+//PENSER AU BUG DE PAGE PRECEDENT SUR QUIZ QUI SUPPRIME PAS COOKIE
+//RESPONSIVE !!
 
 initButtons();
 session_start();
