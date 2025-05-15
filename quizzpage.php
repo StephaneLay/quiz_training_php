@@ -33,7 +33,7 @@ if ($_SESSION['tracker'] == $question_amount) {
 
 function displayQuestion($number, $_questions, $_name, $_questionAmount)
 {
-    echo '<h2>' . $number + 1 . '/' . $_questionAmount . '</h2>';
+    echo '<h2>Question n° ' . $number + 1 . ' / ' . $_questionAmount . '</h2>';
     echo "<form method='post'><fieldset>";
     echo "<legend>" . $_questions[$number]["question"] . "</legend>";
     echo "<div class='answers'>";

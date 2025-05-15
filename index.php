@@ -17,7 +17,8 @@ require "contents/footer.php";
 
 function initButtons()
 {
-    echo '<div class="quizzcards">
+    echo '
+    <div class="cards-container"><div class="quizzcards">
     <img src="assets/History.jpg" alt="">
     <a class="navbutton" href="/quizzpage.php?category=HG">Quizz Histoire & Géo</a>
 </div>
@@ -39,13 +40,10 @@ function initButtons()
 </div>
 <div class="quizzcards">
     <img src="assets/TV.jpg" alt="">
-    <a class="navbutton" href="/quizzpage.php?category=SL">Quizz Sports & Loisirs</a>"
+    <a class="navbutton" href="/quizzpage.php?category=SL">Quizz Sports & Loisirs</a>
+</div>
 </div>';
         
-
-
-
-
 
 }
 
