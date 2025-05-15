@@ -1,22 +1,20 @@
 <?php
+
 require 'contents/header.php';
 require 'contents/questions.php';
 
-
-
-//OPTI : RANGER ET DOCUMENTER LE CODE
-//FINIR LE STYLE
-//PENSER AU BUG DE PAGE PRECEDENT SUR QUIZ QUI SUPPRIME PAS COOKIE
-//RESPONSIVE !!
-
 initButtons();
+
+//RESET DE SESSION 
 session_start();
 session_destroy();
 
 require "contents/footer.php";
 
-
-
+/**
+ * Affiche les boutons concernant chaque quiz avec des img. Chaque lien ajoute une entrée categorie a $_GET pour generer le bon quizz
+ * @return void
+ */
 function initButtons()
 {
     echo '
@@ -45,9 +43,5 @@ function initButtons()
     <a class="navbutton" href="/quizzpage.php?category=SL">Quizz Sports & Loisirs</a>
 </div>
 </div>';
-        
-
 }
-
-
 ?>

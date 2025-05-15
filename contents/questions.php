@@ -1,4 +1,6 @@
 <?php
+
+//Le csv est ouvert,lu et chaque ligne de mon csv est entré comme une valeur du tableau donnees
 $fichier = fopen("questsheet.csv", "r");
 $donnees = [];
 while (($ligne = fgetcsv($fichier)) !== false) {
@@ -6,6 +8,7 @@ while (($ligne = fgetcsv($fichier)) !== false) {
 }
 fclose($fichier);
 
+//Tableau associatif avec 'category'=>'questions_de_cette_categorie[]'
 $questionnaires = [
     "CS" => [],
     "HG" => [],
@@ -15,8 +18,7 @@ $questionnaires = [
     "SL" => []
 ];
 
-
-
+//Modele vide de question à completer et a ajouter à la bonne categorie dans la tableau questionnaires[]
 $question_template = [
     "question" => "",
     "answers" => [
@@ -27,6 +29,9 @@ $question_template = [
     ]
 ];
 
+//Ici pour chaque ligne de donnees, on remplit un question_template avec chaque element de la ligne au bon endroit
+//Ca aurait été plus propre avec une en tete dans mon csv que en faisant des calculs avec des index mais tout fonctionne
+//Mon questionnaires[] est full rempli comme il faut
 foreach ($donnees as $value) {
     $question_template["question"] = $value[2];
     for ($i = 3; $i < 7; $i++) {

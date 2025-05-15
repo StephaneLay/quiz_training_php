@@ -1,4 +1,9 @@
-/* RESET DE BASE */
+:root{
+    font-size: 16px;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -6,11 +11,16 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* BODY GÉNÉRAL */
 body {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #fff;
     padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 main {
@@ -21,7 +31,6 @@ main {
     flex-direction: column;
 }
 
-/* PAGE D'ACCUEIL */
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -76,9 +85,7 @@ main {
     background-color: #ffd633;
 }
 
-/* PAGE DE QUIZZ */
 form {
-    /* max-width: 600px; */
     width: 50%;
     margin: .5rem auto; 
     background: rgba(0, 0, 0, 0.2);
@@ -152,9 +159,14 @@ button:hover {
     background-color: #ffd633;
 }
 
-/* FIN DU QUIZZ */
-h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 1rem;
+@media screen and (max-width:700px) {
+    :root{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    :root{
+        font-size: 9px;
+    }
 }
